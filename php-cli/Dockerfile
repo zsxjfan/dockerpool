@@ -12,6 +12,13 @@ FROM php:5.6.14-cli
 
 MAINTAINER xhx <xiao@bingofresh.com>
 
+# 解决时区问题
+RUN echo "Asia/Shanghai" > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
+
+RUN mkdir -p /app
+WORKDIR /app
+
 # sources.list
 # git clone git@github.com:IBBD/docker-compose.git
 # 如果导致apt-get Install不成功，可以先注释这句
@@ -52,10 +59,4 @@ RUN \
     && chmod 755 /usr/local/bin/composer \
     && composer config -g repositories.packagist composer http://packagist.phpcomposer.com \
     && rm -rf /msgpack.tgz \
-
-
-WORKDIR /app
-
-# 解决时区问题
-env TZ "Asia/Shanghai"
 
