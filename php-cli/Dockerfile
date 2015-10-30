@@ -12,12 +12,6 @@ FROM php:5.6.14-cli
 
 MAINTAINER xhx <xiao@bingofresh.com>
 
-# 解决时区问题
-env TZ "Asia/Shanghai"
-
-# Configure /app folder with sample app
-RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
-
 # sources.list
 # git clone git@github.com:IBBD/docker-compose.git
 # 如果导致apt-get Install不成功，可以先注释这句
@@ -59,4 +53,9 @@ RUN \
     && composer config -g repositories.packagist composer http://packagist.phpcomposer.com \
     && rm -rf /msgpack.tgz \
 
+
+WORKDIR /app
+
+# 解决时区问题
+env TZ "Asia/Shanghai"
 
