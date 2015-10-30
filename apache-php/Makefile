@@ -13,7 +13,7 @@ status:
 	@docker-compose ps
 
 cli:
-	@docker exec -it $(shell docker-compose ps -q meteor-app) bash
+	@docker exec -it $(shell docker-compose ps -q web) bash
 
 log:
 	@docker-compose logs
@@ -22,9 +22,17 @@ rebuild:
 	@docker-compose build
 
 restart:
-	@docker-compose stop meteor-app
-	@docker-compose start meteor-app
+	@docker-compose stop web
+	@docker-compose start web
 	@docker-compose logs
 
-.PHONY: clean start stop status cli log rebuild restart
+update:
+	@svn update app
 
+image:
+	@docker build -t bingofresh/apache-php .
+
+publish:
+	@bash scripts/push_images.sh bingofresh/wx-php 
+
+.PHONY: clean start stop status cli log rebuild restart update image publish

@@ -1,9 +1,9 @@
-apache-php:
-  build: .
+web:
+  image: bingofresh/apache-php
   ports:
-   - "8080:80"
-#  volumes:
-#   - ./app:/app
+   - "8081:80"
+  volumes:
+   - ./app:/app
 #   - ./logs/apache:/var/log/apache2
   environment:
    MYSQL_MASTER_HOST: 
