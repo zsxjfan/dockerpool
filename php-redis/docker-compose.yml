@@ -1,0 +1,33 @@
+php-apache:
+  build: .
+  ports:
+   - "8080:80"
+  environment:
+   MYSQL_MASTER_HOST: 
+   MYSQL_MASTER_PORT:
+   MYSQL_SLAVE_HOST:
+   MYSQL_SLAVE_PORT:
+   MYSQL_DBNAME:
+   MYSQL_USERNAME:
+   MYSQL_PASSWORD:
+  volumes:
+    - ./app:/app
+    - ./logs/apache:/var/log/apache2
+  links:
+    - redis:redis
+php-swoole:
+  build: ./app/swoole
+  links:
+   - redis:redis
+  volumes:
+   - ./app/swoole:/app
+#  command:
+#   - /web/swoole/server.php
+redis:
+  image: registry.bingofresh.com/bingofresh/redis
+  ports:
+   - "6379:6379"
+  volumes:
+   - ./files/data:/data
+  command:
+   redis-server --requirepass 123456

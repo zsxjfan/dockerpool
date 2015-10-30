@@ -1,0 +1,35 @@
+[Mon Oct 26 08:03:02.661400 2015] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.7 (Ubuntu) PHP/5.5.9-1ubuntu4.11 configured -- resuming normal operations
+[Mon Oct 26 08:03:02.661495 2015] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Oct 26 08:27:51.607642 2015] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+[Mon Oct 26 08:27:59.003124 2015] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.7 (Ubuntu) PHP/5.5.9-1ubuntu4.11 configured -- resuming normal operations
+[Mon Oct 26 08:27:59.007846 2015] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Oct 26 08:32:47.795223 2015] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+[Mon Oct 26 08:32:53.199232 2015] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.7 (Ubuntu) PHP/5.5.9-1ubuntu4.11 configured -- resuming normal operations
+[Mon Oct 26 08:32:53.200202 2015] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Oct 26 08:40:55.321886 2015] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+[Mon Oct 26 08:41:02.807323 2015] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.7 (Ubuntu) PHP/5.5.9-1ubuntu4.11 configured -- resuming normal operations
+[Mon Oct 26 08:41:02.808316 2015] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Oct 26 08:50:42.429552 2015] [:error] [pid 24] [client 113.117.160.29:42954] PHP Fatal error:  Class 'swoole_client' not found in /app/swoole/client.php on line 3
+[Mon Oct 26 09:26:10.045331 2015] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+[Mon Oct 26 17:26:32.899871 2015] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.7 (Ubuntu) PHP/5.5.9-1ubuntu4.11 configured -- resuming normal operations
+[Mon Oct 26 17:26:32.900065 2015] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Oct 26 18:37:50.738546 2015] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+[Mon Oct 26 18:38:07.218392 2015] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.7 (Ubuntu) PHP/5.5.9-1ubuntu4.11 configured -- resuming normal operations
+[Mon Oct 26 18:38:07.218600 2015] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Oct 26 18:42:10.998282 2015] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+[Mon Oct 26 18:42:20.874273 2015] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.7 (Ubuntu) PHP/5.5.9-1ubuntu4.11 configured -- resuming normal operations
+[Mon Oct 26 18:42:20.876596 2015] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Oct 26 18:44:31.168518 2015] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+[Mon Oct 26 18:44:35.311710 2015] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.7 (Ubuntu) PHP/5.5.9-1ubuntu4.11 configured -- resuming normal operations
+[Mon Oct 26 18:44:35.311903 2015] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Wed Oct 28 11:35:54.044917 2015] [suexec:notice] [pid 110] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.51. Set the 'ServerName' directive globally to suppress this message
+[Wed Oct 28 11:35:54.048783 2015] [auth_digest:notice] [pid 110] AH01757: generating secret for digest authentication ...
+[Wed Oct 28 11:35:54.060546 2015] [mpm_prefork:notice] [pid 110] AH00163: Apache/2.4.16 (Unix) PHP/5.6.14 configured -- resuming normal operations
+[Wed Oct 28 11:35:54.061226 2015] [core:notice] [pid 110] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Oct 28 11:36:13.841689 2015] [:error] [pid 120] [client 192.168.99.1:52445] script '/var/www/localhost/htdocs/hello.php' not found or unable to stat
+[Wed Oct 28 11:46:50.103375 2015] [mpm_prefork:notice] [pid 110] AH00173: SIGHUP received.  Attempting to restart
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.51. Set the 'ServerName' directive globally to suppress this message
+[Wed Oct 28 11:46:50.110266 2015] [auth_digest:notice] [pid 110] AH01757: generating secret for digest authentication ...
+[Wed Oct 28 11:46:50.118233 2015] [mpm_prefork:notice] [pid 110] AH00163: Apache/2.4.16 (Unix) PHP/5.6.14 configured -- resuming normal operations
+[Wed Oct 28 11:46:50.119450 2015] [core:notice] [pid 110] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'

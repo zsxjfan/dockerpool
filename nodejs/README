@@ -1,0 +1,88 @@
+#  
+# $ 缤果微信系统开发环境
+# @author  xhx xiao@bingofresh.com
+# @data:  2015/10/29 11:58
+# @version:  V0.1.0 
+# 
+
+结构说明：
+应用都使用以下结构来组织
+/app
+/logs
+/files
+Dockerfile
+docker-compose.yml
+docker-compose.yml.example
+Makefile
+
+/app目录是应用的根目录。
+
+/logs和 /files目录用于开发，以便应用可以写入日志和文件。这两个目录会被SVN忽略，并在生产环境中完全排除。
+
+Dockerfile是用于构建镜像的文件，开发人员几乎不需要接触这个文件。
+
+docker-compose.yml是开发人员用于启动应用的文件。这二者均不用于生产环境，当开发人员克隆一个项目时，他需要在这个文件并填入他的值。
+
+Makefile通过用来集成一些标准的命令集用于所有应用，并对开发人员隐藏各种各样的复杂性。
+
+
+使用说明:
+1. 安装docker环境
+运行环境需要依赖 docker、 docker-machine、 docker-compose, 请先安装 
+参考：
+https://docs.docker.com/installation/mac/
+
+2. 导入系统镜像
+下载地址：
+http://bingofresh.oss-cn-qingdao.aliyuncs.com/docker%2Fimages%2Fmeteord_devbuild.tar
+http://bingofresh.oss-cn-qingdao.aliyuncs.com/docker%2Fimages%2Fmongodb.tar
+
+导入
+docker load --input meteord_devbuild.tar
+docker load --input mongodb.tar
+
+3. 修改环境台数 
+按需要修改docker-compose.yml 中以下变量
+ROOT_URL: 应用发布的地址
+MONGO_URL: mongodb连接地址
+MONGODB_PASS: mongodb初始化密码， 注释则随机生成，可以用 make log 查看生成的账号密码
+
+注：可以用以下环境变量获得mongodb连接信息
+DB_ENV_MONGODB_PASS   ： mongodb 密码 账号默认为admin
+DB_ENV_MONGO_VERSION  ： mongodb 版本号
+DB_PORT_27017_TCP_ADDR  ：mongodb ip地址
+DB_PORT_27017_TCP_PORT  ：mongodb 端口
+
+4. 启动应用
+运行 make start 则启动应用
+
+5. 重新打包
+更新代码之后使用 make rebuild 重新打包应用
+然后用 make start 重启应用
+
+
+
+命令说明： 
+start:
+	启动整个应用环境
+
+clean:
+	删除所有容器， 要先运行stop
+
+stop:
+	停止应用容器
+
+status:
+	查看应用容器运行状态
+
+cli:
+	连接应用的管理终端
+
+log:
+	查看运行日志
+
+rebuild:
+	程序更新之后重新打包应用
+
+restart:
+	重启应用

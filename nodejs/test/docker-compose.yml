@@ -1,0 +1,2 @@
+my-php-apache:
+  image: my-php-apache
