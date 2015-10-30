@@ -25,7 +25,7 @@ RUN dpkg-reconfigure -f noninteractive tzdata
 
 # Configure /app folder with sample app
 RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
-ONBUILD chown www-data:www-data /app -R
+ONBUILD RUN chown www-data:www-data /app -R
 
 # Install modules
 RUN \
