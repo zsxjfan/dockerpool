@@ -14,6 +14,7 @@ status:
 
 cli:
 	@docker exec -it $(shell docker-compose ps -q web) bash
+#	@winpty docker exec -it $(shell docker-compose ps -q php-apache) bash
 
 log:
 	@docker-compose logs
