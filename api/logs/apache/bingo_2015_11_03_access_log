@@ -1,0 +1,2 @@
+209.9.106.47 - - [03/Nov/2015:10:39:50 +0800] "GET /info.php HTTP/1.1" 200 25847 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36"
+209.9.106.47 - - [03/Nov/2015:10:39:50 +0800] "GET /favicon.ico HTTP/1.1" 404 436 "http://apitest2.bingofresh.com:6080/info.php" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36"
