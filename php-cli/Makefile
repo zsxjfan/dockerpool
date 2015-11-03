@@ -30,7 +30,7 @@ update:
 	@svn update app
 
 image:
-	@docker build -t bingofresh/apache-cli .
+	@docker build -t bingofresh/php-cli .
 
 publish:
 	@bash scripts/push_images.sh bingofresh/wx-php 

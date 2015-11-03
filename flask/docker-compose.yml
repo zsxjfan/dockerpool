@@ -1,0 +1,6 @@
+php-apache:
+  image: p0bailey/docker-flask
+  ports:
+   - "8080:80"
+#  volumes:
+#    - ./app:/app

@@ -1,0 +1,31 @@
+[Wed Oct 28 11:29:25.030378 2015] [suexec:notice] [pid 110] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.49. Set the 'ServerName' directive globally to suppress this message
+[Wed Oct 28 11:29:25.038006 2015] [auth_digest:notice] [pid 110] AH01757: generating secret for digest authentication ...
+[Wed Oct 28 11:29:25.052490 2015] [mpm_prefork:notice] [pid 110] AH00163: Apache/2.4.16 (Unix) PHP/5.6.14 configured -- resuming normal operations
+[Wed Oct 28 11:29:25.053585 2015] [core:notice] [pid 110] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Wed Oct 28 11:31:42.866926 2015] [mpm_prefork:notice] [pid 110] AH00173: SIGHUP received.  Attempting to restart
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.49. Set the 'ServerName' directive globally to suppress this message
+[Wed Oct 28 11:31:42.909707 2015] [auth_digest:notice] [pid 110] AH01757: generating secret for digest authentication ...
+[Wed Oct 28 11:31:42.917419 2015] [mpm_prefork:notice] [pid 110] AH00163: Apache/2.4.16 (Unix) PHP/5.6.14 configured -- resuming normal operations
+[Wed Oct 28 11:31:42.918568 2015] [core:notice] [pid 110] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Thu Oct 29 05:44:53.868330 2015] [suexec:notice] [pid 110] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.75. Set the 'ServerName' directive globally to suppress this message
+[Thu Oct 29 05:44:53.877524 2015] [auth_digest:notice] [pid 110] AH01757: generating secret for digest authentication ...
+[Thu Oct 29 05:44:53.889898 2015] [mpm_prefork:notice] [pid 110] AH00163: Apache/2.4.16 (Unix) PHP/5.6.14 configured -- resuming normal operations
+[Thu Oct 29 05:44:53.891066 2015] [core:notice] [pid 110] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Thu Oct 29 05:44:57.456089 2015] [:error] [pid 115] [client 192.168.99.1:60981] script '/var/www/localhost/htdocs/info.php' not found or unable to stat
+[Thu Oct 29 05:46:39.059662 2015] [mpm_prefork:notice] [pid 110] AH00173: SIGHUP received.  Attempting to restart
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.75. Set the 'ServerName' directive globally to suppress this message
+[Thu Oct 29 05:46:39.065616 2015] [auth_digest:notice] [pid 110] AH01757: generating secret for digest authentication ...
+[Thu Oct 29 05:46:39.072497 2015] [mpm_prefork:notice] [pid 110] AH00163: Apache/2.4.16 (Unix) PHP/5.6.14 configured -- resuming normal operations
+[Thu Oct 29 05:46:39.073652 2015] [core:notice] [pid 110] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Thu Oct 29 05:46:42.597993 2015] [suexec:notice] [pid 112] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.77. Set the 'ServerName' directive globally to suppress this message
+[Thu Oct 29 05:46:42.615171 2015] [auth_digest:notice] [pid 112] AH01757: generating secret for digest authentication ...
+[Thu Oct 29 05:46:42.629322 2015] [mpm_prefork:notice] [pid 112] AH00163: Apache/2.4.16 (Unix) PHP/5.6.14 configured -- resuming normal operations
+[Thu Oct 29 05:46:42.629567 2015] [core:notice] [pid 112] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
+[Thu Oct 29 07:02:36.822163 2015] [mpm_prefork:notice] [pid 112] AH00173: SIGHUP received.  Attempting to restart
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.77. Set the 'ServerName' directive globally to suppress this message
+[Thu Oct 29 07:02:36.846635 2015] [auth_digest:notice] [pid 112] AH01757: generating secret for digest authentication ...
+[Thu Oct 29 07:02:36.854116 2015] [mpm_prefork:notice] [pid 112] AH00163: Apache/2.4.16 (Unix) PHP/5.6.14 configured -- resuming normal operations
+[Thu Oct 29 07:02:36.854336 2015] [core:notice] [pid 112] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'

@@ -30,4 +30,4 @@ redis:
   volumes:
    - ./files/data:/data
   command:
-   redis-server --requirepass 123456
+   redis-server --requirepass password
