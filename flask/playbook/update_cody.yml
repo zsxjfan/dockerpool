@@ -1,0 +1,25 @@
+- hosts: local
+  vars:
+    org: registry.bingofresh.com
+    container: bingofresh/wx-php
+    svn_path: /alidata/apps/bingofresh.test
+    host_volume: /alidata/apps/bingofresh.test/app
+    container_volume: /app
+    servername: php_ser
+    extra_params: -p 8081:80
+  remote_user: root
+  tasks:
+  - name: Add app dir if it doesn't yet exist
+    file: path={{ host_volume }} owner=nobody group=dockerroot recurse=yes state=directory
+    sudo: no
+  - name: Run Docker image with app volumes
+    docker:
+      name: "{{ servername }}"
+      image: "{{ org }}/{{ container }}"
+      state: started
+      ports:
+      - "8081:80"
+      volumes:
+      - "{{ host_volume }}:{{ container_volume }}"
+  - name: SVN pull the latest code
+    subversion: repo=svn://114.215.128.66/bingofresh.test dest="{{ svn_path }}"

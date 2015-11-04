@@ -1,0 +1,25 @@
+- hosts: local
+  vars:
+    org: registry.bingofresh.com
+    container: bingofresh/wx-php
+    host_volume: /alidata/apps/test
+    log_volume: /alidata/apps/test/logs
+    container_volume: /var/log/apache2
+    servername: php_ser
+    extra_params: -p 8081:80
+  remote_user: root
+  tasks:
+  - set_fact: host_volume="/alidata/apps/test"
+  - name: Add app dir if it doesn't yet exist
+    file: path={{ host_volume }} owner=nobody group=dockerroot recurse=yes state=directory
+    sudo: no
+  - name: Run Docker image with app volumes
+    docker:
+      name: "{{ servername }}"
+      image: "{{ org }}/{{ container }}"
+      state: reloaded
+      pull: always
+      ports:
+      - "8081:80"
+      volumes:
+      - "{{ log_volume }}:{{ container_volume }}"

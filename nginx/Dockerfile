@@ -13,7 +13,7 @@ MAINTAINER xhx <xiao@bingofresh.com>
 #ADD ext/sources.list   /etc/apt/sources.list
 
 # 解决时区问题
-#env TZ "Asia/Shanghai"
+env TZ "Asia/Shanghai"
 #RUN echo "Asia/Shanghai" > /etc/timezone
 #RUN dpkg-reconfigure -f noninteractive tzdata
 
