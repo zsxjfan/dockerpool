@@ -13,13 +13,10 @@
   - name: Add app dir if it doesn't yet exist
     file: path={{ host_volume }} owner=nobody group=dockerroot recurse=yes state=directory
     sudo: no
-  - name: Run Docker image with app volumes
-    docker:
-      name: "{{ servername }}"
-      image: "{{ org }}/{{ container }}"
-      state: reloaded
-      pull: always
-      ports:
-      - "8081:80"
-      volumes:
-      - "{{ log_volume }}:{{ container_volume }}"
+  - name: SVN pull the latest code
+    subversion: repo=svn://114.215.128.66/bingofresh.test dest="{{ svn_path }}"
+  - name: Build Docker image with latest code
+    command: docker build -t {{ container }} {{ host_volume }}
+  - name: push the new image to registry 
+    command: push {{ container }}
+    
