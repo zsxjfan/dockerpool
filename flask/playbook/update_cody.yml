@@ -1,4 +1,4 @@
-- hosts: local
+- hosts: test
   vars:
     org: registry.bingofresh.com
     container: bingofresh/wx-php

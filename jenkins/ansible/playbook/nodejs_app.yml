@@ -1,0 +1,18 @@
+- hosts: "{{ host }}"
+  vars:
+    base_path: /data/apps
+    org: registry.bingofresh.com
+    project: bingofresh/wx-php
+  remote_user: root
+  tasks:
+  - name: Run Docker image with app volumes
+    docker:
+      name: "{{ container }}"
+  #    image: "{{ org }}/{{ container }}"
+      image: "{{ container }}:{{ tag }}"
+      state: reloaded
+  #    pull: always
+      ports:
+      - "8000:8000"
+  #    volumes:
+  #    - "{{ log_volume }}:{{ container_volume }}"

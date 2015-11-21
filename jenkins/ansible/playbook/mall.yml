@@ -1,0 +1,41 @@
+- hosts: "{{ host }}"
+  vars:
+    base_path: /data/apps
+    org: registry.bingofresh.com
+    project: bingofresh/wx-php
+  remote_user: root
+  tasks:
+  - name: Git pull the latest code
+    git: repo=git@gitlab.com:{{ org }}/{{ container }}.git
+         dest={{ base_path }}/{{ container }}
+         accept_hostkey=yes
+         force=yes
+         version={{ version }}
+  - name: Add app dir if it doesn't yet exist
+    file: path={{ item }} owner=nobody group=docker recurse=yes state=directory
+    with_items:
+    - "{{ base_path }}/{{ container }}/app"
+    - "{{ base_path }}/{{ container }}/logs"
+  - name: Run Docker image with app volumes
+    docker:
+      name: "{{ container }}-apache"
+      image: "{{ org }}/{{ container }}-apache"
+      state: started
+      restart_policy: always
+      memory_limit: 256MB
+  #    pull: always
+      volumes:
+      - "{{ base_path }}/{{ container }}/app:/app"
+      - "{{ base_path }}/{{ container }}/logs:/var/log/apache2"
+  - name: Run Docker image with app volumes
+    docker:
+      name: "{{ container }}-nginx"
+      image: "{{ org }}/{{ container }}-nginx"
+      state: started
+  #    pull: always
+      ports:
+      - "8000:80"
+      links:
+      - "{{ container }}-apache:m2_web"
+      volumes:
+      - "{{ base_path }}/{{ container }}/app:/usr/share/nginx/html"

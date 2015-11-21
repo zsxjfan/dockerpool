@@ -1,0 +1,16 @@
+- hosts: "{{ host }}"
+  vars:
+    base_path: /data/apps
+    org: registry.bingofresh.com
+    project: bingofresh/wx-php
+  remote_user: root
+  tasks:
+  - set_fact: app_path={{ base_path }}/{{ project }}
+  - name: Add app dir if it doesn't yet exist
+    file: path={{ app_path }} owner=nobody group=docker recurse=yes state=directory
+    sudo: no
+  - name: Git pull the latest code
+    git: repo=git@github.com:{{ org }}/{{ project }}.git
+         dest={{ app_path }}
+         accept_hostkey=yes
+         force=yes

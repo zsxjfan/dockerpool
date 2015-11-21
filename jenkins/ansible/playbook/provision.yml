@@ -1,0 +1,47 @@
+- name: debug docker host
+  hosts: docker
+  tasks:
+  - name: debug infrastructure
+    # access container data :print the state
+    debug: var=hostvars["builder"]["docker_state"]
+    # you can target individual containers by name
+- name: configure the container
+  hosts: builder
+  tasks:
+  - name: run dummy command
+    command: /bin/echo hello world
+  - name: initialize provisioning
+    hosts: docker
+  - name: start up target container
+    docker:
+    image: python:2.7
+    name: lab
+    pull: missing
+    detach: yes
+    tty: yes
+    command: sleep infinity
+    state: started
+    # dynamically update inventory to make it available down the playbook
+- name:registernew container hostname
+  add_host: name=lab
+- name: provision container
+  connection: docker
+  hosts: lab
+  tasks:
+  #...
+- name: finalize build
+  hosts: docker
+  tasks:
+  - name: stop container
+    docker:
+    name: lab
+    image: python:2.7
+    state: stopped
+    
+# name the resulting artifact under a human readable image tag
+docker tag lab article/lab:experimental
+# push this image to the official docker hub
+#make sure to replace 'article' by your own DockerHublogin(https://hub.docker.com)
+#(this step is optional and will only make the image available from any docker host.
+You can skip it or even use your own registry)
+docker push article/lab:experimental

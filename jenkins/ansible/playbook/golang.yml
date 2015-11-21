@@ -1,0 +1,43 @@
+- hosts: "{{ host }}"
+  vars:
+    base_path: /data/apps
+    org: registry.bingofresh.com
+    project: bingofresh/wx-php
+    tag: "{{ tag }}"
+    version: "{{ version }}"
+  remote_user: root
+  tasks:
+  - name: Git pull the latest code
+    git: repo=git@gitlab.com:{{ org }}/{{ container }}.git
+         dest={{ base_path }}/{{ container }}
+         accept_hostkey=yes
+         force=yes
+         version={{ version }}
+    when : version == "develop"
+  - name: Add app dir if it doesn't yet exist
+    file: path={{ item }} owner=nobody group=docker recurse=yes state=directory
+    with_items:
+    - "{{ base_path }}/{{ container }}/app"
+    when : version == "develop"
+  - name: Run Docker iamge with product
+    docker:
+      name: "{{ container }}-pro"  
+      image: "{{ org }}/{{ container }}:{{ tag }}"
+#      pull: always
+      state: reloaded
+      ports:
+      - "8002:80"
+    when : version == "master"
+  - name: Run Docker image with app volumes
+    docker:
+      name: "{{ container }}-dev"
+  #    image: "{{ org }}/{{ container }}"
+      image: "{{ org }}/{{ container }}:{{ tag }}"
+      state: reloaded
+  #    pull: always
+      ports:
+      - "8000:80"
+      volumes:
+      - "{{ base_path }}/{{ container }}/app:/go/src/app"
+      command: go run main.go
+    when: version == "develop"

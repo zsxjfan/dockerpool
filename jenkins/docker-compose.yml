@@ -1,0 +1,12 @@
+web:
+  build: .
+  ports:
+   - "8080:8080"
+  volumes:
+   - ./files/data:/var/jenkins_home
+   - ./logs:/var/jenkins_data
+   - /var/run/docker.sock:/var/run/docker.sock
+   - ./ansible:/opt/ansible
+#   - /usr/bin/docker:/usr/bin/docker
+  environment:
+   JAVA_OPTS: "-Djava.util.logging.config.file=/var/jenkins_home/log.properties"
